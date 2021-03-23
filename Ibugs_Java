@@ -1,0 +1,23 @@
+//1. char 转成 double时奇怪的bug
+    char[] z = new StringBuilder("96").reverse().toString().toCharArray();
+		char[] y = new char[]{6,9};
+
+        System.out.println("1:"+z[0]);
+		System.out.println("2:"+new StringBuilder(z[0]).toString() );
+		System.out.println("3:" + Double.valueOf(z[0]));
+	
+        System.out.println("1:"+y[0]);
+		System.out.println("2:"+new StringBuilder(y[0]).toString() );
+		System.out.println("3:" + Double.valueOf(y[0]));
+    
+ //输出结果
+ 1:6
+2:
+3:54.0
+1:
+2:
+3:6.0
+
+//54应该是因为6的asic码时54，空？
+//答案是尽量不要用原始类型  
+//jdk:1.8
